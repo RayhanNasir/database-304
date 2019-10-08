@@ -1,0 +1,82 @@
+drop table employee;
+CREATE TABLE EMPLOYEE(
+    EMP_ID            NUMBER(5)    NOT NULL,
+    FNAME             VARCHAR2(20),
+    LNAME             VARCHAR2(20),
+    DEPT_ID           NUMBER(5)    NOT NULL,
+    MANAGER_EMP_ID    NUMBER(5),
+    SALARY            NUMBER(5),
+    HIRE_DATE         DATE,
+    JOB_ID            NUMBER(3),
+    CONSTRAINT employee_pk PRIMARY KEY (EMP_ID)
+    );
+
+-- Insert data into employee
+
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7369,'JOHN','SMITH',20,7902,800,'17-DEC-80',667);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7499,'KEVIN','ALLEN',30,7698,1600,'20-FEB-81',670);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7521,'CYNTHIA','WARD',30,7698,1250,'22-FEB-81',670);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7566,'TERRY','JONES',20,7839,2000,'02-APR-81',671);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7654,'KENNETH','MARTIN',30,7698,1250,'28-SEP-81',670);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7698,'MARION','BLAKE',30,7839,2850,'01-MAY-80',671);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7782,'CAROL','CLARK',10,7839,2450,'09-JUN-81',671);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7788,'DONALD','SCOTT',20,7566,3000,'19-APR-87',669);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7839,'FRANCIS','KING',10, null,5000,'17-NOV-81',672);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7844,'MARY','TURNER',30,7698,1500,'08-SEP-81',670);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7876,'DIANE','ADAMS',20,7788,1100,'23-MAY-87',667);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7900,'FRED','JAMES',30,7698,950,'03-DEC-81',667);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7902,'JENNIFER','FORD',20,7566,3000,'03-DEC-81',669);
+insert into employee 
+(EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+values
+(7934,'BARBARA','MILLER',10,7782,1300,'23-JAN-82',667);
+
+commit;
+
+
+SELECT e.lname employee, m.lname manager
+	FROM employee e JOIN employee m
+	ON e.manager_emp_id = m.emp_id;
+
+SELECT e.lname employee, m.lname manager
+	FROM employee e left outer JOIN employee m
+	ON e.manager_emp_id = m.emp_id;
